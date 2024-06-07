@@ -1,6 +1,6 @@
 {
   "name": "i-am-selfish",
-  "version": "0.0.0-0",
+  "version": "1.0.0",
   "description": "I am selfish is an esoteric programming language that solely discusses itself, permitting only variations of the symbol \"I\".",
   "main": "i-am-selfish.js",
   "scripts": {
