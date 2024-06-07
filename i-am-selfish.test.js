@@ -133,7 +133,7 @@ test('multiplication', () => { // A = A * B
 })
 
 test('Hello World', () => {
-  const hello = `
+  const hello = translate(`
     ABBABBABBABB              H
     AABBAABBAABBAABB
     ABBABBABB                 e
@@ -156,7 +156,7 @@ test('Hello World', () => {
     AABBAABBAABBAABBAABB
     ABBABB                    d
     AABBAA
-  `
+  `)
   const result = []
   let last = 0, zero = true
   const onStep = r => {
@@ -167,7 +167,7 @@ test('Hello World', () => {
     last = r[0]
     if (last === 0) zero = true
   }
-  selfish(translate(hello), null, null, onStep)
+  selfish(hello, null, null, onStep)
 
   const alphabet = []
   alphabet[1] = ' '

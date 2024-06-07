@@ -132,6 +132,61 @@ or
 IIIΙΙΙΙΙIIІIIIIΙΙΙІІІІІІІІІІΙΙІІІӀӀӀӀӀӀІІIӀІІІІІІӀӀӀΙΙΙΙΙӀӀІӀӀӀӀӀӀІІ
 ```
 
+### Hello World
+
+For computing "Hello World" the numbers in the registers must be interpreted as letters. 
+  It can achieved by defining a simple alphabet:
+
+| Letter | Number |
+| :----: | :----: |
+| ` `    | 1      |
+| `d`    | 2      |
+| `e`    | 3      |
+| `H`    | 4      |
+| `l`    | 5      |
+| `o`    | 6      |
+| `r`    | 7      |
+| `W`    | 8      |
+
+The following program sets *A* progressively to 4, 3, 5, 5, 6, 1, 8, 6, 7, 5, 2
+  which corresponds to "Hello World":
+
+```
+ABBABBABBABB              H
+AABBAABBAABBAABB
+ABBABBABB                 e
+AABBAABBAABB
+ABBABBABBABBABB           l
+AABBAABBAABBAABBAABB
+ABBABBABBABBABB           l
+AABBAABBAABBAABBAABB
+ABBABBABBABBABBABB        o
+AABBAABBAABBAABBAABBAABB
+ABB                       _
+AABB
+ABBABBABBABBABBABBABBABB  W
+AABBAABBAABBAABBAABBAABBAABBAABB
+ABBABBABBABBABBABB        o
+AABBAABBAABBAABBAABBAABB
+ABBABBABBABBABBABBABB     r
+AABBAABBAABBAABBAABBAABBAABB
+ABBABBABBABBABB           l
+AABBAABBAABBAABBAABB
+ABBABB                    d
+AABBAA
+```
+
+or (newlines are added arbitrarily)
+
+```
+IΙΙIΙΙIΙΙIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIΙΙIΙΙIΙΙIIΙΙIIΙΙIIΙΙIΙΙIΙΙIΙΙIΙΙ
+IΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIΙΙIΙΙIΙΙIΙΙIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIΙΙ
+IΙΙIΙΙIΙΙIΙΙIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIΙΙIIΙΙIΙΙIΙΙIΙΙIΙΙIΙΙ
+IΙΙIΙΙIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIΙΙIΙΙIΙΙIΙΙIΙΙIΙΙII
+ΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIΙΙIΙΙIΙΙIΙΙIΙΙIΙΙIΙΙIIΙΙIIΙΙIIΙΙIIΙΙII
+ΙΙIIΙΙIIΙΙIΙΙIΙΙIΙΙIΙΙIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIIΙΙIΙΙIΙΙIIΙΙII
+```
+
 ## JavaScript interpreter
 
 ```sh
