@@ -1,0 +1,28 @@
+{
+  "name": "i-am-selfish",
+  "version": "0.0.0-0",
+  "description": "I am selfish is an esoteric programming language that solely discusses itself, permitting only variations of the symbol \"I\".",
+  "main": "i-am-selfish.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttulka/i-am-selfish.git"
+  },
+  "keywords": [
+    "i-am-selfish",
+    "esolang",
+    "programming-language",
+    "js"
+  ],
+  "author": "Tomas Tulka (ttulka)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ttulka/i-am-selfish/issues"
+  },
+  "homepage": "https://github.com/ttulka/i-am-selfish#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
