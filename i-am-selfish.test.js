@@ -115,7 +115,7 @@ test('multiplication', () => { // A = A * B
     DDD BBBBB       if d==0 jump @begin
     DD C            d-- c++
     DDDD DD         jump @mv          
-    @end            clear c
+    @end
     CC              just label    
   `)
   expect(selfish(mult, [0, 0, 0, 0])[A]).toEqual(0)
@@ -168,7 +168,6 @@ test('Hello World', () => {
     if (last === 0) zero = true
   }
   selfish(translate(hello), null, null, onStep)
-  console.log('RES', result)
 
   const alphabet = []
   alphabet[1] = ' '
