@@ -132,6 +132,36 @@ test('multiplication', () => { // A = A * B
   expect(selfish(mult, [42, 13, 0, 0])[A]).toEqual(546)
 })
 
+test('fibonacci sequence', () => {
+  const fib = translate(`
+    @begin
+    CCC DDDD DDDDDD  if c==0 jump to @end
+    CC               c--
+
+    @b2d             move b to d
+    BBB AAAA A       if b==0 jump to @a2b
+    BB D             b-- d++
+    BBBB             jump to @b2d
+
+    @a2b             move a to b
+    AAA DDDD DDD     if a==0 jump to @d2ab
+    AA B             a-- b++
+    AAAA A           jump to @a2b
+
+    @d2ab            move d to a and b
+    DDD CCCC         if d==0 jump to @begin
+    DD A B           d-- a++ b++
+    DDDD DD          jump to @d2ab
+
+    @end CC DD       label; both are noop
+  `)  
+  const result = []
+            // [first, second, elements of sequence to compute]
+  selfish(fib, [1, 1, 10], null, collectChanges(result))
+
+  expect(result).toStrictEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
+})
+
 test('Hello World', () => {
   const hello = translate(`
     ABBABBABBABB              H
@@ -158,16 +188,7 @@ test('Hello World', () => {
     AABBAA
   `)
   const result = []
-  let last = 0, zero = true
-  const onStep = r => {
-    if (r[0] < last && zero) {  // value change
-      result.push(last)
-      zero = false
-    }
-    last = r[0]
-    if (last === 0) zero = true
-  }
-  selfish(hello, null, null, onStep)
+  selfish(hello, null, null, collectChanges(result))
 
   const alphabet = []
   alphabet[1] = ' '
@@ -186,3 +207,15 @@ test('Hello World', () => {
 
   expect(msg).toStrictEqual('Hello World')
 })
+
+function collectChanges(result) {
+  let last = 0, zero = true
+  return  r => {
+    if (r[0] < last && zero) {  // value change
+      result.push(last)
+      zero = false
+    }
+    last = r[0]
+    if (last === 0) zero = true
+  }
+}

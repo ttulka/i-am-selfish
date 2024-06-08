@@ -30,7 +30,7 @@ Instructions are denoted as a unary number using one of the "I" symbols:
 
 Jump is unconditional; its target is determined by the number of symbols appended to the instruction. Four symbols refer to zero, five to one, six to two, and so on. It counts only instructions that use the same symbols as the jump itself.
 
-Note that since only "*I*" symbols are allowed, instructions with different symbols must be used as separators; otherwise, the code would be ambiguous.
+Since only "*I*" symbols are allowed, instructions with different symbols must be used as separators; otherwise, the code would be ambiguous.
 
 The selection and jump instructions together provide conditional jumps sufficient for Turing completeness.
 
@@ -45,7 +45,7 @@ Does nothing:
 ```
 ```
 
-### Inifinite loop
+### Infinite loop
 
 Never stops:
 
@@ -104,7 +104,7 @@ or
 
 ### Multiplication
 
-Mupliplies *A* with *B* (A = A × B):
+Multiples *A* with *B* (A = A × B):
 
 ```
 @init           initially move a to c:
@@ -132,21 +132,54 @@ or
 IIIΙΙΙΙΙIIІIIIIΙΙΙІІІІІІІІІІΙΙІІІӀӀӀӀӀӀІІIӀІІІІІІӀӀӀΙΙΙΙΙӀӀІӀӀӀӀӀӀІІ
 ```
 
+### Fibonacci sequence
+
+Computes the Fibonacci sequence starting with the elements in *A* and *B*, continuing until the number of elements specified in *C*:
+
+```
+@begin
+CCC DDDD DDDDDD  if c==0 jump to @end
+CC               c--
+
+@b2d             move b to d
+BBB AAAA A       if b==0 jump to @a2b
+BB D             b-- d++
+BBBB             jump to @b2d
+
+@a2b             move a to b
+AAA DDDD DDD     if a==0 jump to @d2ab
+AA B             a-- b++
+AAAA A           jump to @a2b
+
+@d2ab            move d to a and b
+DDD CCCC         if d==0 jump to @begin
+DD A B           d-- a++ b++
+DDDD DD          jump to @d2ab
+
+@end CC DD       label; both are noop
+```
+
+or
+
+```
+ІІІӀӀӀӀӀӀӀӀӀӀІІΙΙΙIIIIIΙΙӀΙΙΙΙIIIӀӀӀӀӀӀӀIIΙIIIIIӀӀӀІІІІӀӀIΙӀӀӀӀӀӀІІӀӀ
+```
+
 ### Hello World
 
 For computing "Hello World" the numbers in the registers must be interpreted as letters. 
   It can achieved by defining a simple alphabet:
 
-| Letter | Number |
-| :----: | :----: |
-| ` `    | 1      |
-| `d`    | 2      |
-| `e`    | 3      |
-| `H`    | 4      |
-| `l`    | 5      |
-| `o`    | 6      |
-| `r`    | 7      |
-| `W`    | 8      |
+| Letter | Value |
+| :----: | :---: |
+| ` `    | 1     |
+| `d`    | 2     |
+| `e`    | 3     |
+| `H`    | 4     |
+| `l`    | 5     |
+| `o`    | 6     |
+| `r`    | 7     |
+| `W`    | 8     |
 
 The following program sets *A* progressively to 4, 3, 5, 5, 6, 1, 8, 6, 7, 5, 2
   which corresponds to "Hello World":
